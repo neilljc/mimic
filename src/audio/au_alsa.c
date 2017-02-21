@@ -43,7 +43,7 @@
 
 #ifdef CST_AUDIO_ALSA
 
-#define _BSD_SOURCE /* alsa alloca stuff and nanosleep */
+#define _DEFAULT_SOURCE /* alsa alloca stuff and nanosleep */
 
 #include <stdlib.h>
 #include <unistd.h>
