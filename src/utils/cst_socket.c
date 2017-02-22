@@ -62,6 +62,7 @@ int cst_socket_close(int socket)
     return -1;
 }
 #else
+#define _POSIX_C_SOURCE 200112L
 #include <stdio.h>
 #include <stdlib.h>
 #ifndef _MSC_VER
@@ -105,7 +106,7 @@ int cst_socket_open(const char *host, int port)
             cst_errmsg("cst_socket: gethostbyname failed\n");
             return -1;
         }
-        memmove(&serv_addr.sin_addr, serverhost->h_addr,
+        memmove(&serv_addr.sin_addr, serverhost->h_addr_list[0],
                 serverhost->h_length);
     }
     serv_addr.sin_family = AF_INET;
